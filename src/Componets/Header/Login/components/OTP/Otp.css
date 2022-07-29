@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+.wrap {
+    background-color: rgb(234, 234, 234);
+    padding: 10px 20px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.row {
+    width: 60%;
+    padding: 0 15px;
+}
+.container {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid aqua;
+}
+.icon__close {
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+.col-left-header-otp h2 {
+    font-size: 1rem;
+    margin-left: 2px;
+    width: 80%;
+}
+.tiki__img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+}
+.otp-code {
+    width: 100%;
+    margin: 20px auto;
+}
+.otp-field {
+    width: 25px;
+    margin: 10px auto;
+}
+.btn {
+    background-color: red;
+    color: #fff;
+    display: block;
+    width: 90%;
+    padding: 10px 30px;
+    border-radius: 5px;
+    border-color: #fff;
+    border: 0;
+    margin: 0 auto;
+}
+.resend-otp {
+    font-size: 0.7rem;
+}
+.resend-otp {
+    margin-top: 30px;
+}

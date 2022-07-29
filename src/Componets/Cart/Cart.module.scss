@@ -1,0 +1,34 @@
+.MainCart {
+    width: 1270px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    & h4 {
+        font-size: 24px;
+    }
+}
+.Content {
+    display: flex;
+}
+.Left {
+    flex: 1 1 910px;
+    // box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.ElementProduct {
+    display: grid;
+    grid-template-columns: 398px 190px 130px 130px 30px;
+}
+.Col1 {
+    display: flex;
+}
+.Image {
+    & img {
+        width: 80px;
+        height: 80px;
+    }
+}
+.Right {
+    flex: 1 1 calc(100% - 925px);
+}

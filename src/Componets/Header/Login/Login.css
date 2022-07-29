@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+.wrap {
+    width: 500px;
+    height: 350px;
+    background-color: rgba(239, 236, 196, 0.573);
+    border-radius: 8px;
+    padding: 10px;
+    position: relative;
+}
+label {
+    font-weight: 500;
+}
+.icon__close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+.icon__close:hover {
+    opacity: 0.5;
+}
+.container {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    width: 100%;
+    height: 100%;
+    border-color: #1c8ef9;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 0;
+}
+.col-right {
+    width: 100%;
+}
+.button1 {
+    border: none;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 2px;
+    background-color: #ffffff;
+    color: black;
+    border: 1px solid;
+}
+.ggregister {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.8rem;
+}
+button.btn.btn-danger.button2 {
+    margin-top: 20px;
+}
+body {
+    background: #1c8ef9 !important;
+    display: flex;
+    font-weight: 400;
+    font-family: 'Fira Sans', sans-serif;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.gglogin {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 20px 40px;
+}
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.col-left {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+
+.col-left-header {
+    display: flex;
+    background-color: rgb(238, 238, 238);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.login,
+.register {
+    width: 50%;
+    display: block;
+    text-align: center;
+    border: 1px solid #1c8ef9;
+    padding: 10px 20px;
+    background-color: rgb(238, 238, 238);
+}
+.login {
+    border-right: none;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    font-weight: 600;
+}
+.loginform {
+    display: block;
+}
+.btn {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 0.8rem;
+}
+.register {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.col-left-body {
+    padding: 10px 10px;
+}

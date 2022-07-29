@@ -1,0 +1,22 @@
+.Click {
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.Thumbnail {
+    flex-shrink: 0;
+    text-align: center;
+    width: 100%;
+}
+.Info {
+    margin-top: 15px;
+    overflow: hidden;
+    width: 250px;
+}
+.Price {
+    display: flex;
+
+    align-items: center;
+    margin-top: 4px;
+    color: rgb(56, 56, 61);
+}
