@@ -1,22 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react';
 import productApi from '../../../../api/product';
 import { Context } from '../../../../Context/Context';
+import Product from '../Product';
 import ProductSkeletonList from '../ProductSkeletonList';
 import Styles from './ProductMain.module.scss';
-import Product from '../Product';
 import ProductNotFound from './ProductNotFound';
-import ProductResult from './ProductResult';
 
 function ProductMain(props) {
     const { productList, setProductList, search, searchString } = useContext(Context);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [page, setPage] = useState({
         _page: 1,
         _limit: 30,
     });
 
     useEffect(() => {
-        (async () => {
+        const fetch = async () => async () => {
             try {
                 if (search) {
                     const { data } = await productApi.getBySearch({ inputSearch: search });
@@ -28,9 +27,9 @@ function ProductMain(props) {
             } catch (error) {
                 console.log('Failed', error);
             }
-            setLoading(false);
-        })();
-    }, [page, search]);
+        };
+        fetch();
+    }, [page._page, search]);
     const handleClickButton = () => {
         setPage({ ...page, _page: page._page + 1 });
     };

@@ -1,10 +1,5 @@
-import Axios from 'axios';
-const axiosClient = Axios.create({
-    baseURL: 'https://localhost:5000/api',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-});
+import { format } from 'react-string-format';
+import axiosClient from './axiosClient';
 
 export const getUser = async () => {
     const response = await axiosClient.get('/User/users');
@@ -17,8 +12,12 @@ export const getUser = async () => {
 };
 
 export const loginUser = async (formData) => {
-    const value = await axiosClient.post('/Login/login', formData);
-    return value;
+    const response = await axiosClient.post('/Login/login', formData);
+    
+    if (response?.success) {
+        return response;
+    }
+    return null;
 };
 
 export const getAllProduct = async () => {
@@ -26,16 +25,43 @@ export const getAllProduct = async () => {
     if (response.data?.success) return response.data.products;
     return [];
 };
-export const LoginAPI = async (user) => {
-    const response = await axiosClient.post('/Login/login', user);
 
-    if (response.data?.success) return response.data.token;
+export const OtpAPI = async (phoneNumber) => {
+    const response = await axiosClient.get(`/OTP/sendOpt/${phoneNumber}`);
+    console.log(response);
+    if (response?.success) return response?.OPTNumber;
     return null;
 };
 
-export const OtpAPI = async (phoneNumber) => {
-    debugger;
-    const response = await axiosClient.get('/api/OTP/sendOpt/${phoneNumber}', phoneNumber);
-    const url = `/api/OTP/sendOpt/${phoneNumber}`;
-    return axiosClient.get(url);
+export const getProvices = async () => {
+    // const response = await axiosClient.get('/api/OTP/sendOpt/${phoneNumber}', phoneNumber);
+    const url = `/Province/Provinces`;
+    const response = await axiosClient.get(url);
+
+    if (response?.success) {
+        return response?.Provinces;
+    }
+    return [];
+};
+
+export const getDistricts = async () => {
+    // const response = await axiosClient.get('/api/OTP/sendOpt/${phoneNumber}', phoneNumber);
+    const url = `/District/Districts`;
+    const response = await axiosClient.get(url);
+    console.log(response);
+    if (response?.success) {
+        return response?.Districts;
+    }
+    return [];
+};
+
+export const getWards = async () => {
+    // const response = await axiosClient.get('/api/OTP/sendOpt/${phoneNumber}', phoneNumber);
+    const url = `/Wards/Wards`;
+    const response = await axiosClient.get(url);
+
+    if (response?.success) {
+        return response?.Wardss;
+    }
+    return [];
 };

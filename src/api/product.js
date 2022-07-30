@@ -15,9 +15,9 @@ const productApi = {
         };
     },
     async getLazy(_page, _limit) {
-        const result = await axiosClient.get(`/Product/get/${_page}/${_limit}`);
+        const data = await axiosClient.get(`/Product/get/${_page}/${_limit}`);
         return {
-            data: result?.products || [],
+            data: data.result || [],
         };
     },
     async getBySearch(params) {

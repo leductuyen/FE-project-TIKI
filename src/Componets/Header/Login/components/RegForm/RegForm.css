@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+
+/* body {
+    background: #1C8EF9 !important;
+    display: flex;
+    font-weight: 400;
+    font-family: 'Fira Sans', sans-serif;
+    justify-content: center;
+    margin-top: 100px !important;
+} */
+.Reg_container {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid aqua;
+}
+label {
+    display: inline-block !important;
+}
+
+h5 {
+    text-align: center;
+    color: green;
+}
+.left-col {
+    margin: 10px;
+}
+
+.right-col {
+    margin: 10px;
+}
+.name_section {
+    display: flex;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+.phonenumber_section {
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+.address_section {
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+.city_section {
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+.district_section {
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+.ward_section {
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+.tiki__img {
+    width: 200px;
+    height: 100%;
+    object-fit: cover;
+}
+/* input {
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: rgb(133, 133, 133);
+  height: 20px;
+  width: 160px;
+  /* margin-left: 50px; */
+
+.city_list {
+    margin-left: 10px;
+}
+.regbutton {
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-around;
+}
+.row {
+    width: 150px;
+}
+.valid-msg {
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-left: 128px;
+    align-items: center;
+    color: red;
+}

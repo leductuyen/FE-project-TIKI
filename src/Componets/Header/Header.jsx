@@ -13,6 +13,7 @@ import { cartItemsCountSelector } from '../Cart/selectors';
 import { useHistory } from 'react-router-dom';
 function Header(props) {
     const cartItemsCount = useSelector(cartItemsCountSelector);
+
     const history = useHistory();
     const inputRef = useRef();
     const { setSearch, searchString, setSearchString } = useContext(Context);
@@ -69,9 +70,11 @@ function Header(props) {
                             src="https://salt.tikicdn.com/ts/upload/67/de/1e/90e54b0a7a59948dd910ba50954c702e.png"
                             alt=""
                         />
+
                         <span className={Styles.UserStyles}>
                             <DialogLogin />
                         </span>
+
                         <span className={Styles.UserStyles}>
                             <IconButton aria-label="show 4 new mails" color="inherit" onClick={handleCartClickOpen}>
                                 <Badge badgeContent={cartItemsCount} color="secondary">

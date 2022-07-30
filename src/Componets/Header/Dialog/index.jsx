@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import CloseIcon from '@material-ui/icons/Close';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
+import { IconButton, Typography } from '@material-ui/core';
 import RecoverPassWord from '../RecoverPassWord';
+import Login from '../Login';
+import RegForm from '../Login/components/RegForm/RegForm';
+import DialogActions from '@mui/material/DialogActions';
+import Close from '@material-ui/icons/Close';
 
+import { green } from '@mui/material/colors';
+import { useEffect } from 'react';
+import { set } from 'react-hook-form';
+import { Context } from '../../../Context/Context';
 const useStyles = makeStyles((theme) => ({
     Main: {
         background: 'rgb(248, 248, 248)',
@@ -29,8 +37,13 @@ const useStyles = makeStyles((theme) => ({
         position: 'absolute',
         borderRadius: '50%',
         cursor: 'pointer',
-        backgroundColor: 'black',
+        backgroundColor: 'red',
         color: '#fff',
+    },
+    CloseButton: {
+        position: 'absolute',
+        top: theme.spacing(0.5),
+        right: theme.spacing(1),
     },
     Left: {
         width: '500px',
@@ -89,7 +102,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function DialogLogin() {
     const classes = useStyles();
+    const { userName, setUserName } = useContext(Context);
     const [open, setOpen] = React.useState(false);
+    const [isRegistration, setRegistration] = React.useState(false);
+    const [isLogin, setLogin] = React.useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -98,15 +114,53 @@ export default function DialogLogin() {
         setOpen(false);
     };
 
+    const callbackFunction = (isRegistration) => {
+        console.log(isRegistration);
+        setRegistration(isRegistration);
+        // setState({ message: childData });
+    };
+
+    const callbackLogin = (isLogin) => {
+        console.log(isLogin);
+        setLogin(isLogin);
+        // setState({ message: childData });
+    };
+    const handleLogOut = () => {
+        window.localStorage.removeItem('USER');
+        setUserName(null);
+        // setState({ message: childData });
+    };
+
     return (
         <div>
             <Box>
-                <Button className={classes.ButtonClickOpen} onClick={handleClickOpen}>
-                    Đăng nhập/Đăng kí
-                </Button>
+                {userName ? (
+                    <>
+                        <p className={classes.ButtonClickOpen}>{userName}</p>
+                        <Button className={classes.ButtonClickOpen} onClick={() => handleLogOut()}>
+                            Dang xuat
+                        </Button>
+                    </>
+                ) : (
+                    <Button className={classes.ButtonClickOpen} onClick={handleClickOpen}>
+                        Đăng nhập/Đăng kí
+                    </Button>
+                )}
                 <Dialog open={open}>
-                    {/* <Login /> */}
-                    <Box className={classes.Main}>
+                    {isRegistration ? (
+                        <RegForm handleClose={handleClose} isRegistration={isRegistration}></RegForm>
+                    ) : (
+                        <Login
+                            handleClose={handleClose}
+                            parentCallback={callbackFunction}
+                            isRegistration="{isRegistration}"
+                        />
+                    )}
+
+                    <IconButton className={classes.CloseButton} onClick={handleClose}>
+                        <Close />
+                    </IconButton>
+                    {/* <Box className={classes.Main}>
                         <CloseIcon className={classes.CloseIcon} onClick={handleClose} />
                         <Box className={classes.Left}>
                             <Box className={classes.LeftStyles}>
@@ -140,7 +194,7 @@ export default function DialogLogin() {
                                 <Typography className={classes.p}>Siêu ưu đãi mỗi ngày</Typography>
                             </Box>
                         </Box>
-                    </Box>
+                    </Box> */}
                 </Dialog>
             </Box>
         </div>

@@ -9,9 +9,14 @@ const userApi = {
     //     const url = `/categories/${id}`;
     //     return axiosClient.get(url)
     // },
-    register(data) {
-        const url = '/auth/local/register';
-        return axiosClient.post(url, data);
+    async register(data) {
+        const url = '/User/create';
+        const response = await axiosClient.post(url, data);
+    
+        if (response?.success) {
+            return response._user;
+        }
+        return null;
     },
     login(data) {
         const url = '/auth/local';

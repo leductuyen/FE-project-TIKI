@@ -10,15 +10,7 @@
 label {
     font-weight: 500;
 }
-.icon__close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-}
-.icon__close:hover {
-    opacity: 0.5;
-}
+
 .container {
     box-sizing: border-box;
     display: grid;
@@ -53,7 +45,6 @@ button.btn.btn-danger.button2 {
     margin-top: 20px;
 }
 body {
-    background: #1c8ef9 !important;
     display: flex;
     font-weight: 400;
     font-family: 'Fira Sans', sans-serif;
@@ -113,6 +104,68 @@ img {
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
+.text{
+    font-size: .875em
+}
 .col-left-body {
     padding: 10px 10px;
+}
+.otp-code {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.otp-field {
+    width: 30px;
+}
+.resend_otp {
+    margin-top: 15px;
+    font-size: .875em;
+}
+/* Success */
+h6{
+    text-align: center;
+    color: green;
+  }
+.CssReg{
+    font-size: small;
+}
+.name_section{
+    display: flex;
+    /* margin-bottom: 10px;
+    margin-top: 20px; */
+  }
+ .phonenumber_section{
+    display: flex;
+    /* margin-bottom: 10px; */
+  }
+  .address_section{
+    display: flex;
+    /* margin-bottom: 10px; */
+  }
+  .city_section{
+    display: flex;
+    /* margin-bottom: 10px; */
+  }
+  .district_section{
+    display: flex;
+    /* margin-bottom: 10px; */
+  }
+  .ward_section{
+    display: flex;
+    /* margin-bottom: 10px; */
+  }
+
+  .city_list{
+    margin-left: 10px;
+  }
+.regbutton{
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-around;
+  } 
+.reg_row{
+    width: 150px;
 }
