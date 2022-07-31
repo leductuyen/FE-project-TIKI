@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
-.wrap {
+.wrapLogin {
     width: 500px;
     height: 350px;
     background-color: rgba(239, 236, 196, 0.573);
@@ -7,11 +7,21 @@
     padding: 10px;
     position: relative;
 }
-label {
+/* label {
     font-weight: 500;
-}
-
-.container {
+} */
+/* .container {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    width: 100%;
+    height: 100%;
+    border-color: #1c8ef9;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 0;
+} */
+.containerLogin {
     box-sizing: border-box;
     display: grid;
     grid-template-columns: 60% 40%;
@@ -41,17 +51,19 @@ label {
     text-align: center;
     font-size: 0.8rem;
 }
-button.btn.btn-danger.button2 {
+/* button.btn.btn-danger.button2 {
     margin-top: 20px;
-}
-body {
+} */
+/* body {
     display: flex;
     font-weight: 400;
     font-family: 'Fira Sans', sans-serif;
     justify-content: center;
     margin-top: 100px;
+} */
+body {
 }
-a{
+a {
     cursor: pointer;
 }
 .gglogin {
@@ -59,11 +71,11 @@ a{
     font-size: 0.8rem;
     padding: 20px 40px;
 }
-img {
+/* img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+} */
 .col-left {
     height: 100%;
     width: 100%;
@@ -106,8 +118,8 @@ img {
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
-.text{
-    font-size: .875em
+.text {
+    font-size: 0.875em;
 }
 .col-left-body {
     padding: 10px 10px;
@@ -124,50 +136,50 @@ img {
 }
 .resend_otp {
     margin-top: 15px;
-    font-size: .875em;
+    font-size: 0.875em;
 }
 /* Success */
-h6{
+/* h6 {
     text-align: center;
     color: green;
-  }
-.CssReg{
+} */
+.CssReg {
     font-size: small;
 }
-.name_section{
+.name_section {
     display: flex;
     /* margin-bottom: 10px;
     margin-top: 20px; */
-  }
- .phonenumber_section{
+}
+.phonenumber_section {
     display: flex;
     /* margin-bottom: 10px; */
-  }
-  .address_section{
+}
+.address_section {
     display: flex;
     /* margin-bottom: 10px; */
-  }
-  .city_section{
+}
+.city_section {
     display: flex;
     /* margin-bottom: 10px; */
-  }
-  .district_section{
+}
+.district_section {
     display: flex;
     /* margin-bottom: 10px; */
-  }
-  .ward_section{
+}
+.ward_section {
     display: flex;
     /* margin-bottom: 10px; */
-  }
+}
 
-  .city_list{
+.city_list {
     margin-left: 10px;
-  }
-.regbutton{
+}
+.regbutton {
     display: flex;
     margin-top: 15px;
     justify-content: space-around;
-  } 
-.reg_row{
+}
+.reg_row {
     width: 150px;
 }
