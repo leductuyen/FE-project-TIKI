@@ -134,7 +134,7 @@ function LoRes(props) {
                 break;
             }
             case 'otp': {
-                setBodyForm(<Otp setType={setType} otp={otp} handleChange={handleChange} success={success}></Otp>);
+                setBodyForm(<Otp setType={setType} otp={otp} success={success} setOtp={setOtp}></Otp>);
                 break;
             }
             case 'forgot': {
