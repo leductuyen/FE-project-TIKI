@@ -5,7 +5,7 @@ function Otp(props) {
     return (
         <div className="otpp">
             <div id="otp-input">
-                <div className="row">
+                
                     <div className="col-left-header-otp">
                         <label>Nhập mã OTP</label>
                         <div className="text">Vui lòng nhập mã được gửi tới sđt </div>
@@ -37,7 +37,7 @@ function Otp(props) {
                     </div>
                 </div>
             </div>
-        </div>
+        
     );
 }
 

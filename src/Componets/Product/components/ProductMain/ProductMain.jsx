@@ -15,7 +15,7 @@ function ProductMain(props) {
     });
 
     useEffect(() => {
-        const fetch = async () => async () => {
+        const fetch = async () => {
             try {
                 if (search) {
                     const { data } = await productApi.getBySearch({ inputSearch: search });
