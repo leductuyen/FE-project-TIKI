@@ -6,8 +6,14 @@ import '../../Header/Login/Login.css';
 // import RegForm from './components/RegForm/RegForm';
 import { getUser, loginUser, OtpAPI } from '../../../api/login';
 import { Context } from '../../../Context/Context';
+import RecoverPassWord from '../RecoverPassWord';
+import Login from './components/Login';
+import Register from './components/Register';
+import Otp from './components/Otp';
+import RecoverPassWordForm from '../RecoverPassWordForm';
 
-function Login(props) {
+
+function LoRes(props) {
     const [otp, setOtp] = useState(new Array(6).fill(''));
     const { setUserName } = useContext(Context);
     const handleChange = (element, index) => {
@@ -25,6 +31,9 @@ function Login(props) {
     const [isValidOtp, setisValidOtp] = useState(false);
     const [isRegistration, setRegistration] = useState(false);
     const [isLogin, setLogin] = useState(false);
+    const [bodyForm, setBodyForm] = useState();
+    const [type, setType] = useState("login");
+
 
     const [phoneNumber, setphonenumber] = useState('');
     const [password, setpassword] = useState('');
@@ -60,6 +69,7 @@ function Login(props) {
     };
 
     const handleCheckRes = () => {
+        setType("register")
         if (check) {
             setCheck(false);
         }
@@ -111,7 +121,19 @@ function Login(props) {
     //       formState: { errors },
     //     } = useForm();
     //     const onSubmit = (data) => console.log(data);
-
+    useEffect(() => {
+        switch (type) {
+            case "login" : {setBodyForm (<Login setType={setType} setUserName={setUserName} handleClose={props.handleClose}></Login>)  
+            break;}
+            case "register" : {setBodyForm (<Register setType={setType} setIsOtp={setIsOtp} setRegistration={setRegistration} ></Register>)
+            break;}
+            case "otp" : {setBodyForm (<Otp setType={setType} otp={otp} handleChange={handleChange} success={success}></Otp>)
+            break;}
+            case "forgot" : {setBodyForm (<RecoverPassWordForm></RecoverPassWordForm>)
+            break;}
+            default : {setBodyForm (<p>Unknown</p>) }
+        }
+    },[type]);
     // const renderotp = () => {
     //     if (isValidOtp) {
     //         // return(<RegForm></RegForm>)
@@ -288,161 +310,17 @@ function Login(props) {
             <div className="container">
                 <div className="col-left">
                     <div className="col-left-header">
-                        <button className="login" onClick={handleCheckLogin}>
+                        <button className="login" onClick={()=>setType("login")}>
                             Đăng nhập
                         </button>
-                        <button className="register" onClick={handleCheckRes}>
+                        <button className="register" onClick={()=>setType("register")}>
                             Đăng ký
                         </button>
                     </div>
-
-                    <div className="col-left-body">
-                        {check ? (
-                            <form id="loginform" onSubmit={loginSubmit}>
-                                <div className="form-group">
-                                    <label>Số Điện Thoại</label>
-                                    <input
-                                        type="phone number"
-                                        className="form-control"
-                                        id="exampleInputPhoneNumber1"
-                                        placeholder="Nhập số điện thoại"
-                                        onChange={(event) => setphonenumber(event.target.value)}
-                                    />
-                                    <label>Mật Khẩu</label>
-                                    <input
-                                        type="password"
-                                        className="form-control"
-                                        id="exampleInputPhoneNumber1"
-                                        placeholder="Nhập password"
-                                        onChange={(event) => setpassword(event.target.value)}
-                                    />
-                                    <small id="phonenumbererror" className="text-danger form-text">
-                                        {phonenumberError}
-                                    </small>
-                                </div>
-                                <div className="form-group form-check">
-                                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                                    <label className="form-check-label">Ghi nhớ tôi</label>
-                                </div>
-                                <button type="submit" onClick={loginbyphonenumber} className="btn btn-danger">
-                                    Tiếp Tục
-                                </button>
-                                <div className="gglogin">Hoặc đăng nhập bằng</div>
-                            </form>
-                        ) : (
-                            <form id="registerform" onSubmit={loginSubmit}>
-                                {isOtp ? (
-                                    <div className="otpp">
-                                        <div id="otp-input">
-                                            {/* <div className="row"> */}
-                                            <div className="col-left-header-otp">
-                                                <label>Nhập mã OTP</label>
-                                                <div className="text">Vui lòng nhập mã được gửi tới sđt </div>
-                                                <div className="otp-code">
-                                                    {otp.map((data, index) => {
-                                                        return (
-                                                            <input
-                                                                className="otp-field"
-                                                                type="text"
-                                                                name="otp"
-                                                                maxLength="1"
-                                                                key={index}
-                                                                value={data}
-                                                                onChange={(e) => handleChange(e.target, index)}
-                                                                onFocus={(e) => e.target.select()}
-                                                            />
-                                                        );
-                                                    })}
-                                                </div>
-                                                <button className="btn btn-danger" onClick={success}>
-                                                    Xác minh
-                                                </button>
-                                                <div className="resend_otp">
-                                                    Không nhận được mã ?&nbsp;
-                                                    <a className="text-blue-600" onClick={() => registration()}>
-                                                        Gửi lại OTP
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    // </div>
-                                    // () => {
-                                    //     if (isValidOtp) {
-                                    //          return <RegForm></RegForm>;
-
-                                    //     }
-                                    //         return <div className="otpp">
-                                    //         <div id="otp-input">
-                                    //             <div className="row">
-                                    //                 <div className="col-left-header-otp">
-                                    //                     <label>Nhập mã OTP</label>
-                                    //                     <div className="text">Vui lòng nhập mã được gửi tới sđt </div>
-                                    //                     <div className="otp-code">
-                                    //                         {otp.map((data, index) => {
-                                    //                             return (
-                                    //                                 <input
-                                    //                                     className="otp-field"
-                                    //                                     type="text"
-                                    //                                     name="otp"
-                                    //                                     maxLength="1"
-                                    //                                     key={index}
-                                    //                                     value={data}
-                                    //                                     onChange={(e) => handleChange(e.target, index)}
-                                    //                                     onFocus={(e) => e.target.select()}
-                                    //                                 />
-                                    //                             );
-                                    //                         })}
-                                    //                     </div>
-                                    //                     <button
-                                    //                         className="btn btn-danger"
-                                    //                         onClick={(e) => isValidOtp = true}
-                                    //                     >
-                                    //                         Xác minh
-                                    //                     </button>
-                                    //                     <div className="resend_otp">
-                                    //                         Không nhận đc mã ?&nbsp;
-                                    //                         <a href="!#" className="text-blue-600">
-                                    //                             Resend OTP
-                                    //                         </a>
-                                    //                     </div>
-                                    //                 </div>
-                                    //             </div>
-                                    //             </div>
-                                    //         </div>;
-
-                                    // }
-                                    // renderotp()
-
-                                    <div id="phoneNumber-input">
-                                        <div className="form-group">
-                                            <label>Số Điện Thoại</label>
-                                            <input
-                                                type="phone number"
-                                                className="form-control"
-                                                id="exampleInputPhonenumber1"
-                                                placeholder="Phone Number"
-                                                onChange={(event) => setphonenumber(event.target.value)}
-                                            />
-                                            <small id="phonenumbererror" className="text-danger form-text">
-                                                {phonenumberError}
-                                            </small>
-                                        </div>
-
-                                        <button
-                                            type="submit"
-                                            className="btn btn-danger button2"
-                                            onClick={() => registration()}
-                                        >
-                                            Đăng ký
-                                        </button>
-                                        <div className="ggregister">Hoặc đăng ký bằng</div>
-                                    </div>
-                                )}
-                            </form>
-                        )}
-                    </div>
+                <p>
+                    {bodyForm}
+                </p>
+                    
                 </div>
                 <div className="col-right">
                     <img src={imgTiki} alt=""></img>
@@ -455,4 +333,4 @@ function Login(props) {
         </div>
     );
 }
-export default Login;
+export default LoRes;

@@ -51,7 +51,9 @@ body {
     justify-content: center;
     margin-top: 100px;
 }
-
+a{
+    cursor: pointer;
+}
 .gglogin {
     text-align: center;
     font-size: 0.8rem;
