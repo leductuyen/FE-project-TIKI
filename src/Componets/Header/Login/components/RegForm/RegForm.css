@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+/* @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
 
 /* body {
     background: #1C8EF9 !important;
@@ -8,6 +8,7 @@
     justify-content: center;
     margin-top: 100px !important;
 } */
+
 .Reg_container {
     width: 100%;
     box-sizing: border-box;
@@ -21,10 +22,10 @@ label {
     display: inline-block !important;
 }
 
-h5 {
+/* h5 {
     text-align: center;
     color: green;
-}
+} */
 .left-col {
     margin: 10px;
 }
@@ -37,7 +38,7 @@ h5 {
     margin-left: 15px;
     margin-bottom: 10px;
 }
-.phonenumber_section {
+/* .phonenumber_section {
     display: flex;
     margin-bottom: 10px;
     margin-left: 15px;
@@ -61,21 +62,22 @@ h5 {
     display: flex;
     margin-bottom: 10px;
     margin-left: 15px;
-}
-.tiki__img {
+} */
+/* .tiki__img {
     width: 200px;
     height: 100%;
     object-fit: cover;
-}
-/* input {
+} */
+  input {
   outline: 0;
   border-width: 0 0 1px;
   border-color: rgb(133, 133, 133);
   height: 20px;
   width: 160px;
-  /* margin-left: 50px; */
+  margin-left: 50px; 
+ } 
 
-.city_list {
+ .city_list {
     margin-left: 10px;
 }
 .regbutton {
@@ -92,4 +94,5 @@ h5 {
     margin-left: 128px;
     align-items: center;
     color: red;
-}
+}   
+
