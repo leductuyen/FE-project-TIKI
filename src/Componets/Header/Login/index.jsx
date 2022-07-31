@@ -12,7 +12,6 @@ import Register from './components/Register';
 import Otp from './components/Otp';
 import RecoverPassWordForm from '../RecoverPassWordForm';
 
-
 function LoRes(props) {
     const [otp, setOtp] = useState(new Array(6).fill(''));
     const { setUserName } = useContext(Context);
@@ -32,8 +31,7 @@ function LoRes(props) {
     const [isRegistration, setRegistration] = useState(false);
     const [isLogin, setLogin] = useState(false);
     const [bodyForm, setBodyForm] = useState();
-    const [type, setType] = useState("login");
-
+    const [type, setType] = useState('login');
 
     const [phoneNumber, setphonenumber] = useState('');
     const [password, setpassword] = useState('');
@@ -69,7 +67,7 @@ function LoRes(props) {
     };
 
     const handleCheckRes = () => {
-        setType("register")
+        setType('register');
         if (check) {
             setCheck(false);
         }
@@ -123,17 +121,31 @@ function LoRes(props) {
     //     const onSubmit = (data) => console.log(data);
     useEffect(() => {
         switch (type) {
-            case "login" : {setBodyForm (<Login setType={setType} setUserName={setUserName} handleClose={props.handleClose}></Login>)  
-            break;}
-            case "register" : {setBodyForm (<Register setType={setType} setIsOtp={setIsOtp} setRegistration={setRegistration} ></Register>)
-            break;}
-            case "otp" : {setBodyForm (<Otp setType={setType} otp={otp} handleChange={handleChange} success={success}></Otp>)
-            break;}
-            case "forgot" : {setBodyForm (<RecoverPassWordForm></RecoverPassWordForm>)
-            break;}
-            default : {setBodyForm (<p>Unknown</p>) }
+            case 'login': {
+                setBodyForm(
+                    <Login setType={setType} setUserName={setUserName} handleClose={props.handleClose}></Login>,
+                );
+                break;
+            }
+            case 'register': {
+                setBodyForm(
+                    <Register setType={setType} setIsOtp={setIsOtp} setRegistration={setRegistration}></Register>,
+                );
+                break;
+            }
+            case 'otp': {
+                setBodyForm(<Otp setType={setType} otp={otp} handleChange={handleChange} success={success}></Otp>);
+                break;
+            }
+            case 'forgot': {
+                setBodyForm(<RecoverPassWordForm></RecoverPassWordForm>);
+                break;
+            }
+            default: {
+                setBodyForm(<p>Unknown</p>);
+            }
         }
-    },[type]);
+    }, [type]);
     // const renderotp = () => {
     //     if (isValidOtp) {
     //         // return(<RegForm></RegForm>)
@@ -306,21 +318,18 @@ function LoRes(props) {
     //   }
 
     return (
-        <div className="wrap">
-            <div className="container">
-                <div className="col-left">
+        <div className="wrapLogin">
+            <div className="containerLogin">
+                <div className="col-leftLogin">
                     <div className="col-left-header">
-                        <button className="login" onClick={()=>setType("login")}>
+                        <button className="login" onClick={() => setType('login')}>
                             Đăng nhập
                         </button>
-                        <button className="register" onClick={()=>setType("register")}>
+                        <button className="register" onClick={() => setType('register')}>
                             Đăng ký
                         </button>
                     </div>
-                <p>
-                    {bodyForm}
-                </p>
-                    
+                    <p>{bodyForm}</p>
                 </div>
                 <div className="col-right">
                     <img src={imgTiki} alt=""></img>

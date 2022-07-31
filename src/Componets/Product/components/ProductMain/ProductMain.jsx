@@ -7,7 +7,7 @@ import Styles from './ProductMain.module.scss';
 import ProductNotFound from './ProductNotFound';
 
 function ProductMain(props) {
-    const { productList, setProductList, search, searchString } = useContext(Context);
+    const { productList, setProductList, search } = useContext(Context);
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState({
         _page: 1,
@@ -22,14 +22,14 @@ function ProductMain(props) {
                     setProductList(data);
                 } else {
                     const { data } = await productApi.getLazy(page._page, page._limit);
-                    setProductList(data);
+                    setProductList([...productList, ...data]);
                 }
             } catch (error) {
                 console.log('Failed', error);
             }
         };
         fetch();
-    }, [page._page, search]);
+    }, [page, search]);
     const handleClickButton = () => {
         setPage({ ...page, _page: page._page + 1 });
     };

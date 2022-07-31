@@ -21,7 +21,7 @@ const OTPBox = () => {
             {' '}
             <div className="wrap">
                 <AiFillCloseCircle className="icon__close" />
-                <div className="container">
+                <div className="containerOtp">
                     <div className="row">
                         <div className="col-left-header-otp">
                             <h2>Nhập mã OTP</h2>
