@@ -28,19 +28,24 @@ function Header(props) {
     const handleCartClickOpen = () => {
         history.push('/cart');
     };
+    const handleClickBackHome = () => {
+        history.push('/');
+    };
     return (
         <div className={Styles.Main}>
             <div className={Styles.Wrapper}>
                 <div className={Styles.Header}>
                     <div className={Styles.Middle}>
                         <div className={Styles.Logo}>
-                            <img src={Logo} alt="logo" />
-                            <div className={Styles.FreeTiki}>
-                                <img
-                                    src="https://salt.tikicdn.com/ts/upload/e5/1d/22/61ff572362f08ead7f34ce410a4a6f96.png"
-                                    alt=""
-                                />
-                            </div>
+                            <button onClick={handleClickBackHome} className={Styles.ButtonClickHomeBack}>
+                                <img src={Logo} alt="logo" />
+                                <div className={Styles.FreeTiki}>
+                                    <img
+                                        src="https://salt.tikicdn.com/ts/upload/e5/1d/22/61ff572362f08ead7f34ce410a4a6f96.png"
+                                        alt=""
+                                    />
+                                </div>
+                            </button>
                         </div>
                         <div className={Styles.FormSearch}>
                             <div className={Styles.Search}>
