@@ -68,16 +68,16 @@ label {
     height: 100%;
     object-fit: cover;
 } */
-  input {
-  outline: 0;
+input {
+    /* outline: 0;
   border-width: 0 0 1px;
   border-color: rgb(133, 133, 133);
   height: 20px;
   width: 160px;
-  margin-left: 50px; 
- } 
+  margin-left: 50px;  */
+}
 
- .city_list {
+.city_list {
     margin-left: 10px;
 }
 .regbutton {
@@ -94,5 +94,4 @@ label {
     margin-left: 128px;
     align-items: center;
     color: red;
-}   
-
+}

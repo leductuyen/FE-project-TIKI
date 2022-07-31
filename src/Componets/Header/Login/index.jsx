@@ -332,7 +332,7 @@ function LoRes(props) {
                     <p>{bodyForm}</p>
                 </div>
                 <div className="col-right">
-                    <img src={imgTiki} alt=""></img>
+                    <img className="col-rightImg" src={imgTiki} alt=""></img>
                 </div>
 
                 {/* <Dialog open={isRegistration}>

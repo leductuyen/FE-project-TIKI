@@ -2,7 +2,7 @@
 .wrapLogin {
     width: 500px;
     height: 350px;
-    background-color: rgba(239, 236, 196, 0.573);
+
     border-radius: 8px;
     padding: 10px;
     position: relative;
@@ -32,7 +32,9 @@
     overflow: hidden;
     padding: 0;
 }
-.col-right {
+.col-rightImg {
+    object-fit: cover;
+    height: 100%;
     width: 100%;
 }
 .button1 {
