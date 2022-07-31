@@ -5,10 +5,10 @@ import ProductSkeletonList from '../ProductSkeletonList';
 import Styles from './ProductMain.module.scss';
 import Product from '../Product';
 import ProductNotFound from './ProductNotFound';
-import ProductResult from './ProductResult';
 
 function ProductMain(props) {
-    const { productList, setProductList, search, searchString } = useContext(Context);
+    const { productList, setProductList, search } = useContext(Context);
+
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState({
         _page: 1,
@@ -23,7 +23,7 @@ function ProductMain(props) {
                     setProductList(data);
                 } else {
                     const { data } = await productApi.getLazy(page._page, page._limit);
-                    setProductList(data);
+                    setProductList([...productList, ...data]);
                 }
             } catch (error) {
                 console.log('Failed', error);

@@ -10,24 +10,6 @@ import { useEffect } from 'react';
 import addressApi from '../../../../../api/address';
 import { useState } from 'react';
 
-const currencies = [
-    {
-        value: 'Hà Nội',
-        label: 'Hà Nội',
-    },
-    {
-        value: 'Thái Bình',
-        label: 'Thái Bình',
-    },
-    {
-        value: 'TP Hồ Chí Minh',
-        label: 'TP Hồ Chí Minh',
-    },
-    {
-        value: 'Đà Nẵng',
-        label: 'Đà Nẵng',
-    },
-];
 const useStyles = makeStyles((theme) => ({
     root: {
         '& .MuiTextField-root': {

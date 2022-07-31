@@ -15,16 +15,17 @@ const productApi = {
         };
     },
     async getLazy(_page, _limit) {
-        const result = await axiosClient.get(`/Product/get/${_page}/${_limit}`);
+        const data = await axiosClient.get(`/Product/get/${_page}/${_limit}`);
+
         return {
-            data: result?.products || [],
+            data: data.result || [],
         };
     },
     async getBySearch(params) {
-        const result = await axiosClient.post('/Product/search', params);
+        const data = await axiosClient.post('/Product/search', params);
 
         return {
-            data: result?.products || [],
+            data: data.result || [],
         };
     },
 };

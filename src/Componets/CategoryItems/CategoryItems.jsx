@@ -23,7 +23,7 @@ function CategoryItems(props) {
         <div className={Styles.Category}>
             {itemsCategory.categories?.map((items, index) => (
                 <div className={Styles.Slider}>
-                    <li key={items.CategoryId}>{items?.Name}</li>
+                    <li key={items.id}>{items?.Name}</li>
                 </div>
             ))}
         </div>
