@@ -15,16 +15,7 @@ import RecoverPassWordForm from '../RecoverPassWordForm';
 function LoRes(props) {
     const [otp, setOtp] = useState(new Array(6).fill(''));
     const { setUserName } = useContext(Context);
-    const handleChange = (element, index) => {
-        if (isNaN(element.value)) return false;
-
-        setOtp([...otp.map((d, idx) => (idx === index ? element.value : d))]);
-
-        //Focus next input
-        if (element.nextSibling) {
-            element.nextSibling.focus();
-        }
-    };
+    
     const [check, setCheck] = useState(true);
     const [isOtp, setIsOtp] = useState(false);
     const [isValidOtp, setisValidOtp] = useState(false);
@@ -50,6 +41,12 @@ function LoRes(props) {
 
         return formIsValid;
     };
+
+    const getOtp = (event) => {
+        debugger;
+        setOtp(event);
+    };
+
     useEffect(() => {
         const fetch = async () => {
             const data = await getUser;
@@ -134,7 +131,7 @@ function LoRes(props) {
                 break;
             }
             case 'otp': {
-                setBodyForm(<Otp setType={setType} otp={otp} success={success} setOtp={setOtp}></Otp>);
+                setBodyForm(<Otp setType={setType} otp={otp} getOtp={getOtp} success={success}></Otp>);
                 break;
             }
             case 'forgot': {

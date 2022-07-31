@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Otp(props) {
-    const { setType, otp, handleChange, success } = props;
+    const { setType, success, getOtp } = props;
+    const [otp, setOtp] = useState(new Array(6).fill(''));
+
+   
+    const handleChange = (element, index) => {
+        if (isNaN(element.value)) return false;
+
+        setOtp([...otp.map((d, idx) => (idx === index ? element.value : d))]);
+        getOtp(otp);
+
+        //Focus next input
+        if (element.nextSibling) {
+            element.nextSibling.focus();
+        }
+    };
     return (
         <div className="otpp">
             <div id="otp-input">
